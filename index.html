@@ -8,9 +8,10 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to top right, #ff9a9e, #fad0c4);
+      background: linear-gradient(to top right, #1e1e2f, #2c2c3f);
       font-family: 'Segoe UI', sans-serif;
       overflow: hidden;
+      color: white;
     }
 
     .container {
@@ -20,20 +21,19 @@
       justify-content: center;
       height: 100vh;
       text-align: center;
-      color: white;
     }
 
     h1 {
       font-size: 3em;
-      color: #fff;
-      text-shadow: 0 0 15px #ff1493, 0 0 25px #ff69b4;
+      color: #ff79c6;
+      text-shadow: 0 0 15px #ff79c6, 0 0 25px #bd93f9;
       animation: glow 2s infinite alternate;
       margin-bottom: 20px;
     }
 
     @keyframes glow {
-      from { text-shadow: 0 0 10px #ff69b4; }
-      to   { text-shadow: 0 0 25px #ff1493; }
+      from { text-shadow: 0 0 10px #bd93f9; }
+      to   { text-shadow: 0 0 25px #ff79c6; }
     }
 
     .balloon {
@@ -53,7 +53,7 @@
     }
 
     .cake {
-      width: 150px;
+      width: 160px;
       margin-top: 20px;
       animation: bounce 2s infinite;
     }
@@ -67,17 +67,17 @@
       margin-top: 30px;
       padding: 12px 25px;
       font-size: 1.1em;
-      background-color: #fff;
-      color: #ff1493;
+      background-color: #ff79c6;
+      color: #1e1e2f;
       border: none;
       border-radius: 10px;
       cursor: pointer;
       transition: 0.3s;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
     .message-btn:hover {
-      background-color: #ffb6c1;
+      background-color: #bd93f9;
       color: white;
     }
 
@@ -86,12 +86,12 @@
       top: 20%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: white;
+      background: #2c2c3f;
       padding: 20px 30px;
       border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
       display: none;
-      color: #ff1493;
+      color: #f8f8f2;
       font-size: 1.2em;
       max-width: 80%;
     }
@@ -101,27 +101,21 @@
   <div class="container">
     <h1>🎉 Happy Birthday Mom! 🎉</h1>
 
-    <!-- Cake Image -->
-    <img src="https://cdn.pixabay.com/photo/2013/07/12/13/58/cake-147720_960_720.png" alt="Cake" class="cake" />
+    <!-- ✅ Working Cake Image -->
+    <img src="https://i.imgur.com/3ZQ3Z1Y.png" alt="Birthday Cake" class="cake" />
 
-    <!-- Button -->
     <button class="message-btn" onclick="showMessage()">Click for a surprise 💖</button>
 
-    <!-- Message Popup -->
     <div id="popup">
-      To the sweetest mom in the world,  
-      <br><br>
-      You fill our lives with light, love, and laughter.  
-      <br>
-      I’m so lucky to have you.  
-      <br><br>
-      Happy Birthday! 🎂💐  
-      <br><br>
-      — Your favorite child 💝
+      Dear Mom,<br><br>
+      You’re a light in every dark moment.<br>
+      Thank you for your strength, your love, and your warmth.<br><br>
+      Happy Birthday! 🎂🌟<br>
+      — With all my heart 💝
     </div>
   </div>
 
-  <!-- Balloons Script -->
+  <!-- Balloons -->
   <script>
     function createBalloon() {
       const balloon = document.createElement('div');
@@ -129,10 +123,7 @@
       balloon.style.left = Math.random() * window.innerWidth + 'px';
       balloon.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
       document.body.appendChild(balloon);
-
-      setTimeout(() => {
-        balloon.remove();
-      }, 6000);
+      setTimeout(() => balloon.remove(), 6000);
     }
 
     setInterval(createBalloon, 400);
@@ -142,4 +133,4 @@
     }
   </script>
 </body>
-  </html>
+</html>
