@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Mom</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: linear-gradient(to top right, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #fff;
+      text-shadow: 0 0 15px #ff69b4, 0 0 25px #ff1493;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ff69b4;
+      }
+      to {
+        text-shadow: 0 0 25px #ff1493;
+      }
+    }
+
+    .balloon {
+      width: 40px;
+      height: 60px;
+      background: red;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      position: absolute;
+      bottom: -100px;
+      animation: floatUp 6s ease-in infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    .message-btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      background-color: #fff;
+      color: #ff1493;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: 0.3s;
+    }
+
+    .message-btn:hover {
+      background-color: #ffb6c1;
+      color: white;
+    }
+
+    #popup {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      display: none;
+      text-align: center;
+      font-size: 1.2em;
+      color: #ff1493;
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Birthday Mom!</h1>
+  <button class="message-btn" onclick="showMessage()">Click for a surprise 💖</button>
+
+  <div id="popup">
+    Dear Mom,<br><br>
+    You are my sunshine and my strength.<br>
+    Thank you for your endless love and care.<br>
+    Wishing you all the joy in the world! 💐<br><br>
+    Love you forever! 💝
+  </div>
+
+  <!-- Balloons using JS -->
+  <script>
+    function createBalloon() {
+      const balloon = document.createElement('div');
+      balloon.classList.add('balloon');
+      balloon.style.left = Math.random() * window.innerWidth + 'px';
+      balloon.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
+      document.body.appendChild(balloon);
+
+      setTimeout(() => {
+        balloon.remove();
+      }, 6000);
+    }
+
+    setInterval(createBalloon, 500);
+
+    function showMessage() {
+      document.getElementById('popup').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
